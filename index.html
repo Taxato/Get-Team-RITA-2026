@@ -20,6 +20,13 @@
 			Fiske og Friluft, Motorsykkler, Gaming
 		</p>
 
+		<button onclick="changeColor()">Hit me baby one more time!</button>
+
+		<script>
+			function changeColor() {
+				document.body.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 80%)`;
+			}
+		</script>
 		<style>
 			* {
 				padding: 0;
