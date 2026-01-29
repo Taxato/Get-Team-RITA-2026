@@ -11,7 +11,7 @@
 			rel="stylesheet"
 			href="style.css" />
 	</head>
-	<body>
+	<body class="class">
 		<div class="layout-buttons">
 			<button onclick="noLayout()">Ingen layout</button>
 			<button onclick="verticalLayout()">Vertikalt layout</button>
@@ -45,6 +45,25 @@
 				<div id="bodyGameContent"></div>
 			</div>
 		</div>
+
+		<button
+			id="messBtn"
+			onclick="
+				document.documentElement.style.setProperty(
+					'--transform-var',
+					'skewX(calc(-360deg * 14.02)) skewY(calc(-360deg * 14.02))',
+				);
+				this.remove();
+			"
+			style="
+				background-color: red;
+				color: white;
+				position: absolute;
+				bottom: 0;
+				font-size: small;
+			">
+			DON'T CLICK
+		</button>
 
 		<script src="script.js"></script>
 	</body>
