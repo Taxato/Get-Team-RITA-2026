@@ -1,0 +1,117 @@
+/* #region BASE_STYLES */
+*,
+::after,
+::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul,
+ol {
+	padding-left: 1rem;
+}
+
+body {
+	font-family:
+		"Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+		Arial, sans-serif;
+}
+/* #endregion */
+
+button {
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.25rem;
+	border: 1px solid black;
+	font-size: large;
+	background-color: #eee;
+
+	&:hover {
+		background-color: #ddd;
+	}
+}
+
+.layout-buttons {
+	display: flex;
+	gap: 0.5rem;
+	margin-block: 1rem;
+	justify-content: center;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+/*#region LAYOUTS*/
+#cards.vertical {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	max-width: 36rem;
+	margin-inline: auto;
+}
+
+#cards.horizontal {
+	display: flex;
+	gap: 0.5rem;
+	margin-inline: 1rem;
+}
+
+#cards.grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 1rem;
+}
+/*#endregion*/
+
+.card {
+	border: 1px solid black;
+	border-radius: 1rem;
+	width: 100%;
+	transition: all 1s;
+	padding-inline: 1rem;
+
+	h3 {
+		text-align: center;
+		margin-top: 1rem;
+		color: white;
+		text-shadow:
+			0 0 4px black,
+			0 0 4px black;
+	}
+
+	> div {
+		margin-top: 1rem;
+		background-color: rgba(255, 255, 255, 0.75);
+		border-radius: 1rem;
+	}
+}
+
+.innerCard {
+	padding: 1rem;
+	list-style-position: inside;
+	margin-bottom: 1rem;
+}
+
+/* #region CARD_BACKGROUNDS */
+#cards > :nth-child(1) {
+	background-color: #9f2439;
+}
+
+#cards > :nth-child(2) {
+	background-color: #ce3438;
+}
+
+#cards > :nth-child(3) {
+	background-color: #e95b49;
+}
+
+#cards > :nth-child(4) {
+	background-color: #e59a97;
+}
+
+#cards > :nth-child(5) {
+	background-color: #f7c8b8;
+}
+/* #endregion */
