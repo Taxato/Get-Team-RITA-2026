@@ -112,14 +112,14 @@ const jsCardTemplate = /*html*/ `
 
 const bodyGameTemplate = /* html */ `
 	<div
-		id="head"
-		class="bodyPart"></div>
+		class="bodyPart"><button onclick="nextHead()">&larr;</button> <p id="hode">😶</p> <button onclick="prevHead()">--></button>
+        </div>
 	<div
-		id="body"
-		class="bodyPart"></div>
+		class="bodyPart"><button onclick="nesteTorso()">&larr;</button> <p id="torso">👚</p> <button onclick="nesteTorso1()">--></button>
+	</div>
 	<div
-		id="legs"
-		class="bodyPart"></div>
+		class="bodyPart"><button onclick="prevLegs()">&larr;</button> <p id="legs">👖</p> <button onclick="nextLegs()">--></button>
+        </div>
 `;
 
 //Buttons
@@ -157,4 +157,132 @@ function showJS() {
 }
 function showBodyGame() {
 	clearAll();
+    document.getElementById("bodyGameContent").innerHTML = bodyGameTemplate;
+    
+}
+let x = 1;
+let hode ="";
+function nextHead(){
+    
+
+    x = x + 1;
+    
+    if (x === 4) {
+        x = 1;
+    }
+    if (x === 1) {
+        hode = "😁";
+    }
+    if (x === 2) {
+        hode = "😒";
+    }
+    if (x === 3) {
+        hode = "😘";
+    }
+
+    document.getElementById("hode").innerHTML = hode;
+}
+function prevHead(){
+    
+
+    x = x - 1;
+    
+    if (x === 0) {
+        x = 3;
+    }
+    if (x === 1) {
+        hode = "😁";
+    }
+    if (x === 2) {
+        hode = "😒";
+    }
+    if (x === 3) {
+        hode = "😘";
+    }
+
+    document.getElementById("hode").innerHTML = hode;
+}
+let y = 1;
+let torso ="";
+function nesteTorso(){
+    
+
+    y = y + 1;
+    
+    if (y === 4) {
+        y = 1;
+    }
+    if (y === 1) {
+        torso = "🥼";
+    }
+    if (y === 2) {
+        torso = "🦺";
+    }
+    if (y === 3) {
+        torso = "🧥";
+    }
+
+    document.getElementById("torso").innerHTML = torso;
+}
+function nesteTorso1(){
+    
+
+    y = y - 1;
+    
+    if (y === 0) {
+        y = 3;
+    }
+    if (y === 1) {
+        torso = "🥼";
+    }
+    if (y === 2) {
+        torso = "🦺";
+    }
+    if (y === 3) {
+        torso = "🧥";
+    }
+
+    document.getElementById("torso").innerHTML = torso;
+}
+let z = 1;
+let legs ="";
+function nextLegs(){
+    
+
+    z = z + 1;
+    
+    if (z === 4) {
+        z = 1;
+    }
+    if (z === 1) {
+        legs = "👖";
+    }
+    if (z === 2) {
+        legs = "🩳";
+    }
+    if (z === 3) {
+        legs = "🩲";
+    }
+
+    document.getElementById("legs").innerHTML = legs;
+}
+function prevLegs(){
+    
+
+    z = z - 1;
+    
+    if (z === 0) {
+        z = 3;
+    }
+    if (z === 1) {
+        legs = "👖";
+    }
+    if (z === 2) {
+        legs = "🩳";
+    }
+    if (z === 3) {
+        legs = "🩲";
+    }
+
+    document.getElementById("legs").innerHTML = legs;
 }
