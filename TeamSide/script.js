@@ -51,40 +51,51 @@ function updateView() {
 					data-selected=${currentSelected === "remy"}
 					data-name="remy"
 					class="btn info-btn"
-					onclick="displayInfo(this)">
+					onclick="updateInfo(this)">
 					Remy
 				</div>
 				<div
 					data-selected=${currentSelected === "isak"}
 					data-name="isak"
 					class="btn info-btn"
-					onclick="displayInfo(this)">
+					onclick="updateInfo(this)">
 					Isak
 				</div>
 				<div
 					data-selected=${currentSelected === "thomas"}
 					data-name="thomas"
 					class="btn info-btn"
-					onclick="displayInfo(this)">
+					onclick="updateInfo(this)">
 					Thomas
 				</div>
 				<div
 					data-selected=${currentSelected === "andreas"}
 					data-name="andreas"
 					class="btn info-btn"
-					onclick="displayInfo(this)">
+					onclick="updateInfo(this)">
 					Andreas
 				</div>
 			</div>
+			
+			 ${showInfo()}
+		</section>`;
+
+	document.getElementById("app").innerHTML = appHtml;
+}
+
+function showInfo() {
+	if (currentSelected)
+		// Check truthy falsy value of currentSelected
+		return /* html */ `
 			<div
 				id="info"
 				class="info">
 				${currentInfo}	
 			</div>
 
-			<form class="info-form ${currentSelected === "" ? "hidden" : ""}"
+			<form class="info-form"
 				onsubmit="
-					event.preventDefault(); // Stops page refresh on submitfas
+					event.preventDefault(); // Stops page refresh on submitfase
 					addInfo();">
 				<input
 					id="info-input"
@@ -92,14 +103,12 @@ function updateView() {
 					required />
 				<button class="btn" type="submit">Legg til info</button>
 			</form>
-		</section>`;
-
-	document.getElementById("app").innerHTML = appHtml;
+	`;
+	// Don't need "else" statement, because if currentSelected the function will return early
+	return "";
 }
 
-updateView();
-
-function displayInfo(btnEl) {
+function updateInfo(btnEl) {
 	const person = btnEl.dataset.name;
 	currentSelected = person;
 
@@ -113,3 +122,5 @@ function displayInfo(btnEl) {
 
 	updateView();
 }
+
+updateView();
