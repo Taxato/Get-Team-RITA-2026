@@ -45,6 +45,8 @@ function addInfo() {
 
 function updateView() {
 	const appHtml = /* html */ `
+		${showHeader()}
+		${showNavBar()}
 		<section class="info-section">
 			<div class="info-btns">
 				<div
@@ -78,7 +80,8 @@ function updateView() {
 			</div>
 			
 			 ${showInfo()}
-		</section>`;
+		</section>
+		${showFooter()}`;
 
 	document.getElementById("app").innerHTML = appHtml;
 }
@@ -123,4 +126,34 @@ function updateInfo(btnEl) {
 	updateView();
 }
 
+function showHeader() {
+	return /*html*/ `
+		<header>
+			<h1>Team 2 aka RITA</h1>
+		</header>
+	`;
+}
+
+function showFooter() {
+	return /*html*/ `
+		<footer>scrollbar</footer>
+	`;
+}
+
+function showNavBar() {
+	return /*html*/ `
+		<nav>
+			<button
+				class="btn"
+				onclick="">
+				Home
+			</button>
+			<button
+				class="btn"
+				onclick="">
+				Input
+			</button>
+		</nav>
+	`;
+}
 updateView();
