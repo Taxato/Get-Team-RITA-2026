@@ -8,7 +8,7 @@ let andreasInfo =
 let currentInfo = "";
 
 let currentSelected = "";
-
+let headColor = "";
 // Add a string of info to a selected team member
 function addInfo() {
 	// Get the input element
@@ -46,11 +46,11 @@ function addInfo() {
 function updateView() {
 	const appHtml = /* html */ `
 
-	<select name="" onchange="changeBColor(this.value)">
-		<option>Velg en Farge</option>
-		<option value="redBody">Rød</option>
-    	<option value="blueBody">Blå</option>
-    	<option value="greenBody">Grønn</option>
+	<select selected="${headColor}" onchange="headColor = (this.value);updateView()">
+		<option selected disabled hidden value="">Velg en Farge</option>
+		<option value="red">Rød</option>
+    	<option value="blue">Blå</option>
+    	<option value="green">Grønn</option>
 	</select>
 
 		${showHeader()}
@@ -135,11 +135,28 @@ function updateInfo(btnEl) {
 }
 
 function showHeader() {
-	return /*html*/ `
-		<header>
-			<h1>Team 2 aka RITA</h1>
-		</header>
-	`;
+	if (headColor === "red") {
+		return /*html*/ `
+			<header>
+				<h1 class = "redText" >Team 2 aka RITA</h1>
+			</header>
+		`;
+	}
+	if (headColor === "blue") {
+		return /*html*/ `
+			<header>
+				<h1 class ="blueText">Team 2 aka RITA</h1>
+			</header>
+		`;
+	}
+	if (headColor === "green") {
+		return /*html*/ `
+			<header>
+				<h1 class = "greenText">Team 2 aka RITA</h1>
+			</header>
+		`;
+	}
+	return `<header><h1 >Team 2 aka RITA</h1></header>`;
 }
 
 function showFooter() {
