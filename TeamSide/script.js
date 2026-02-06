@@ -6,8 +6,8 @@ let andreasInfo =
 	"Jeg heter Andreas, og jeg liker pasta og turer i skogen. Og turer i skogen med pasta. ";
 
 let currentInfo = "";
-
 let currentSelected = "";
+
 let headColor = "";
 
 // Add a string of info to a selected team member
@@ -50,7 +50,8 @@ function updateView() {
 		${showHeader()}
 		${showNavBar()}
 		${showInfoSection()}
-		${showFooter()}`;
+		${showFooter()}
+	`;
 
 	document.getElementById("app").innerHTML = appHtml;
 }
@@ -117,7 +118,7 @@ function showInfoSection() {
 			
 			${showInfoText()}
 		</section>
-`;
+	`;
 }
 
 function showInfoText() {
@@ -140,7 +141,7 @@ function showInfoText() {
 					required />
 				<button class="btn" type="submit">Legg til info</button>
 			</form>
-	`;
+		`;
 	// Don't need "else" statement, because if currentSelected the function will return early
 	return "";
 }
@@ -155,29 +156,36 @@ function showHeader() {
 	return /* html */ `
 		<header>
 			<h1 class="${headerClass}">Team 2 aka RITA</h1>
-		</header>`;
-}
-
-function showFooter() {
-	return /*html*/ `
-		<footer>scrollbar</footer>
+		</header>
 	`;
 }
 
 function showNavBar() {
 	return /*html*/ `
 		<nav>
-			<button
+			<a
 				class="btn"
-				onclick="">
+				href="#">
 				Home
-			</button>
-			<button
+			</a>
+			<a
 				class="btn"
-				onclick="">
+				href="#">
 				Input
-			</button>
+			</a>
 		</nav>
+	`;
+}
+
+function showFooter() {
+	return /*html*/ `
+		<footer>
+			<a
+				href="https://github.com/Taxato/Get-Team-RITA-2026/tree/master/TeamSide"
+				target="_blank">
+				Github Repo
+			</a>
+		</footer>
 	`;
 }
 

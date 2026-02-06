@@ -14,10 +14,35 @@ input {
 	border: none;
 }
 
+a {
+	color: inherit;
+	text-decoration: none;
+	transition: all 0.25s;
+	&:hover {
+		scale: 120%;
+	}
+}
+
 :root {
 	--bg-color: #202020;
+	--stripe-pattern: repeating-linear-gradient(
+		45deg,
+		gray,
+		gray 50px,
+		gainsboro 50px,
+		gainsboro 100px
+	);
 
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes background-slide {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 100% 0;
+	}
 }
 
 body {
@@ -25,41 +50,51 @@ body {
 	color: white;
 }
 
-.redText{
-	color: rgba(255, 0, 0, 0.43);
-}
-
-.blueText{
-	color: rgba(0, 0, 255, 0.542);
-}
-
-.greenText{
-	color: rgba(0, 128, 0, 0.587);
-}
-
 header {
 	height: 200px;
-	background-color: #dcdcdc;
+	background: var(--stripe-pattern);
+	background-size: 200%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	animation: background-slide linear 20s infinite paused;
+
+	&:hover {
+		animation-play-state: running;
+	}
+
+	position: relative;
+}
+
+header::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to bottom, transparent 80%, var(--bg-color));
 }
 
 h1 {
 	font-size: 5rem;
 	color: var(--bg-color);
+	text-shadow:
+		0 0 2px gainsboro,
+		0 0 5px gainsboro,
+		0 0 10px gainsboro;
 }
+
 nav {
+	padding-block: 1rem;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	gap: 1rem;
-	border: solid gainsboro 2px;
 
 	button {
 		font-size: large;
 		color: gainsboro;
 	}
 }
+
 footer {
 	background-color: #dcdcdc;
 	position: absolute;
@@ -68,6 +103,7 @@ footer {
 	display: flex;
 	justify-content: center;
 	color: #202020;
+	padding-block: 1rem;
 }
 
 .btn {
@@ -93,6 +129,11 @@ footer {
 	text-align: center;
 	font-size: xx-large;
 	font-weight: 500;
+	transition: all 0.25s;
+
+	&:hover {
+		box-shadow: 0 0 5px white;
+	}
 
 	&[data-selected="true"] {
 		box-shadow: 0 0 10px white;
@@ -118,7 +159,9 @@ footer {
 		padding: 1rem 2rem;
 		font-size: large;
 		background-color: white;
+		border-radius: 0.25rem;
 	}
+
 	button {
 		font-size: large;
 		color: white;
@@ -126,5 +169,29 @@ footer {
 		text-transform: uppercase;
 		font-weight: 700;
 		border: 1px solid gainsboro;
+		border-radius: 0.25rem;
 	}
+}
+
+select[name="head-color-select"] {
+	position: absolute;
+	z-index: 10;
+	top: 0.5rem;
+	left: 0.5rem;
+	padding: 0.5rem;
+	background: none;
+	border: none;
+	outline: none;
+}
+
+.redText {
+	color: rgb(200, 0, 0);
+}
+
+.blueText {
+	color: rgb(32, 32, 166);
+}
+
+.greenText {
+	color: rgb(29, 131, 29);
 }
