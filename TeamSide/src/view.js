@@ -7,7 +7,7 @@ function updateView() {
 		${showFooter()}
 	`;
 
-	document.getElementById("app").innerHTML = appHtml;
+	app.innerHTML = appHtml;
 }
 
 function showColorSelect() {
@@ -55,34 +55,42 @@ function showInfoSection() {
 				</div>
 			</div>
 			
-			${showInfoText()}
+			${showInfoTextAndForm()}
 		</section>
 	`;
 }
 
-function showInfoText() {
-	if (currentSelected)
-		// Check truthy falsy value of currentSelected
-		return /* html */ `
-			<div
-				id="info"
-				class="info">
-				${currentInfo}	
-			</div>
+function showInfoTextAndForm() {
+	//Check if nobody is selected
+	if (currentSelected === "") return "";
+	return /* html */ `
+		${showInfoText()}
+		${showAddInfoForm()}
+	`;
+}
 
-			<form class="info-form"
-				onsubmit="
-					event.preventDefault(); // Stops page refresh on submitfase
-					addInfo();">
-				<input
-					id="info-input"
-					placeholder="Si noe gøy om deg selv"
-					required />
-				<button class="btn" type="submit">Legg til info</button>
-			</form>
-		`;
-	// Don't need "else" statement, because if currentSelected the function will return early
-	return "";
+function showInfoText() {
+	return /* html */ `
+		<div
+			class="info">
+			${currentInfo}	
+		</div>
+	`;
+}
+
+function showAddInfoForm() {
+	return /* html */ `
+		<form class="info-form" 
+			onsubmit="
+				event.preventDefault(); // Stops page refresh on submitfase
+				addInfo();">
+			<input
+				id="info-input"
+				placeholder="Si noe gøy om deg selv"
+				required />
+			<button class="btn" type="submit">Legg til info</button>
+		</form>
+	`;
 }
 
 function showHeader() {

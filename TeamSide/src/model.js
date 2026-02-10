@@ -1,3 +1,5 @@
+const app = document.getElementById("app");
+
 let remyInfo =
 	"Hei! Jeg heter Remy, bor på Rennesøy, og er 36 år. Hobbyer: Trommer, Fiske og Friluft, Motorsykler, Gaming. ";
 let isakInfo = "Jeg heter Isak og jeg liker å sykle.. Jeg er 26 år. ";
