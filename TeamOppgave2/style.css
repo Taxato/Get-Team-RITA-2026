@@ -1,0 +1,91 @@
+*,
+::after,
+::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	font-family:
+		"Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+	text-align: center;
+	margin-block: 1rem;
+}
+
+.main {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	margin-inline: 2rem;
+	gap: 2rem;
+}
+
+.products-column {
+	max-width: fit-content;
+	margin-inline: auto;
+}
+
+.grocery-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 36rem;
+	margin-inline: auto;
+	list-style: none;
+}
+
+.grocery-item {
+	width: 100%;
+}
+
+.grocery-item > div {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.grocery-item > div > span:nth-child(n + 2) {
+	text-align: end;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.search {
+	margin-inline: auto;
+	display: block;
+	padding: 0.25rem 0.5rem;
+	width: 100%;
+}
+
+.product-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	list-style: none;
+	max-width: fit-content;
+	margin-inline: auto;
+}
+
+.product-item > div {
+	display: grid;
+	grid-template-columns: 4fr 1fr 1fr 1fr;
+	align-items: center;
+	border-bottom: 1px solid black;
+	gap: 1rem;
+	padding-bottom: 0.25rem;
+
+	button {
+		padding: 0.25rem;
+	}
+}
+
+input {
+	min-width: 0;
+}

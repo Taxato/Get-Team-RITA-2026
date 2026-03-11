@@ -1,0 +1,17 @@
+Lag en web-applikasjon som skal fungere som en handleliste. 
+Du skal kunne legge til varer og fjerne dem igjen, og siden skal oppdatere seg dynamisk ifht når man skriver inn en ny vare. 
+Her trenger du: 
+- Arrays med objekter
+- Loops
+- MVC
+Pass på at det fungerer stabilt også når listen blir større, og unngå at ugyldige eller tomme verdier legges til. 
+
+Applikasjonen skal bygges med MVC-struktur (Model – View – Controller).
+
+All state skal styres fra modellen.
+View skal kun vise data fra modellen, og controller skal oppdatere modellen.
+
+Varene skal lagres i en array med objekter i modellen.
+Du skal bruke løkker for å vise alle varene i listen.
+
+Se på undervisningen/koden fra igår for en ide om hvordan modellen skal være
