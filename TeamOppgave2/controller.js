@@ -64,6 +64,20 @@ function addProductToCart(id) {
 	const quantity =
 		Number(document.getElementById(`product-amount-${id}`).value) || 1;
 
-	model.shoppingCart.push({ id, quantity });
+	const exisitingItem = model.shoppingCart.find(item => item.id === id);
+
+	if (exisitingItem) {
+		exisitingItem.quantity += quantity;
+	} else {
+		model.shoppingCart.push({ id, quantity });
+	}
+	updateView();
+}
+
+function removeItemFromCart(index) {
+	const item = model.shoppingCart[index];
+	if (item.quantity > 1) {
+		item.quantity--;
+	} else model.shoppingCart.splice(index, 1);
 	updateView();
 }

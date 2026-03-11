@@ -12,6 +12,13 @@ function showShoppingCart() {
 	`;
 
 	let totalCost = 0;
+
+	if (model.shoppingCart.length === 0) {
+		html += /* html */ `
+			<h4>Din handlekurv er tom :)</h4>
+		`;
+	}
+
 	for (let i = 0; i < model.shoppingCart.length; i++) {
 		const cartItem = model.shoppingCart[i];
 		const product = getProductById(cartItem.id);
@@ -25,6 +32,7 @@ function showShoppingCart() {
 					<span>${formatPrice(product.price)}</span>
 					<span>${cartItem.quantity}</span>
 					<span>${formatPrice(product.price * cartItem.quantity)}</span>
+					<button onclick="removeItemFromCart(${i})">&times;</button>
 				</div>
 			</li>
 		`;
