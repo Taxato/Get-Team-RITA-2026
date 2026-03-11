@@ -48,7 +48,6 @@ function showProductSearch() {
 			placeholder="Søk etter varer"
 			oninput="updateSearchTerm(this.value)" />
 	`;
-	l;
 }
 function showProductsList(productList) {
 	let html = /* html */ `
