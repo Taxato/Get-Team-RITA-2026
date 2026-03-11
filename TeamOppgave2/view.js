@@ -1,4 +1,10 @@
 function showShoppingCart() {
+	if (model.shoppingCart.length === 0) {
+		return /* html */ `
+			<h4>Din handlekurv er tom <span>🙃</span></h4>
+		`;
+	}
+
 	let html = /* html */ `
 		<ul class="grocery-list">
 			<li class="grocery-item bold">
@@ -12,12 +18,6 @@ function showShoppingCart() {
 	`;
 
 	let totalCost = 0;
-
-	if (model.shoppingCart.length === 0) {
-		html += /* html */ `
-			<h4>Din handlekurv er tom :)</h4>
-		`;
-	}
 
 	for (let i = 0; i < model.shoppingCart.length; i++) {
 		const cartItem = model.shoppingCart[i];
@@ -57,6 +57,7 @@ function showProductSearch() {
 			oninput="updateSearchTerm(this.value)" />
 	`;
 }
+
 function showProductsList(productList) {
 	let html = /* html */ `
 		<ul class="product-list">

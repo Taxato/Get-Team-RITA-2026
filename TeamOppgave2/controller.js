@@ -12,13 +12,12 @@ function updateView() {
 				<h2>Min handlekurv</h2>
 				${showShoppingCart()}
 			</div>
-		
+
 			<div class="products-column">
 				<h2>Alle produkter</h2>
 				${showProductSearch()}
 				${showProductsList(filteredGroceries)}
 			</div>
-
 		</div>
 	`;
 
@@ -30,19 +29,6 @@ function updateView() {
 }
 
 /**
- * @param {number} price
- * @returns {string}
- */
-function formatPrice(price) {
-	const formatter = new Intl.NumberFormat("no-NB", {
-		style: "currency",
-		currency: "NOK",
-	});
-
-	return formatter.format(price);
-}
-
-/**
  * @param {number} id
  */
 function getProductById(id) {
@@ -50,8 +36,9 @@ function getProductById(id) {
 }
 
 function filterProductsFromSearch(searchTerm) {
+	// Get every element in availableGroceries that starts with the searchTerm string
 	return model.availableGroceries.filter(item =>
-		item.name.toLowerCase().startsWith(searchTerm),
+		item.name.toLowerCase().startsWith(searchTerm.toLowerCase()),
 	);
 }
 
@@ -75,6 +62,7 @@ function addProductToCart(id) {
 }
 
 function removeItemFromCart(index) {
+	console.log(index);
 	const item = model.shoppingCart[index];
 	if (item.quantity > 1) {
 		item.quantity--;

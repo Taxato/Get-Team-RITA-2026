@@ -26,6 +26,9 @@ h4 {
 	color: gray;
 	font-style: italic;
 }
+h4 > span {
+	font-style: normal;
+}
 
 ul {
 	display: flex;
