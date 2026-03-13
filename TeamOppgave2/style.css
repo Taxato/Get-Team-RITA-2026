@@ -4,12 +4,18 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	background-color: var(--dark-color);
+	color: var(--light-color);
 }
 
 :root {
 	font-family:
 		"Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
 		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+	--dark-color: #222;
+	--light-color: #f0f0f0;
+	--red-color: rgb(244, 38, 38);
 }
 
 h1,
@@ -41,8 +47,10 @@ ul {
 .main {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	margin-inline: 2rem;
+	margin-inline: auto;
+	padding-inline: 2rem;
 	gap: 2rem;
+	max-width: 96rem;
 }
 
 .products-column {
@@ -58,15 +66,18 @@ ul {
 	button {
 		width: 1.25rem;
 		height: 1.25rem;
+		font-size: large;
 		border-radius: 100%;
-		display: grid;
-		place-items: center;
-		border: none;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		line-height: 1.25rem;
+		border: 1px solid var(--red-color);
 		cursor: pointer;
-		color: red;
+		color: var(--red-color);
 		transition: all 300ms;
 		&:hover {
-			background-color: red;
+			background-color: var(--red-color);
 			color: white;
 		}
 	}
@@ -85,18 +96,31 @@ ul {
 	display: block;
 	padding: 0.25rem 0.5rem;
 	width: 100%;
+	margin-bottom: 1rem;
+}
+
+li > div {
+	border-bottom: 1px solid var(--light-color);
+	gap: 1rem;
+	padding-bottom: 0.25rem;
+}
+
+li:last-of-type > div {
+	border-bottom: none;
 }
 
 .product-item > div {
 	display: grid;
 	grid-template-columns: 4fr 1fr 1fr 1fr;
 	align-items: center;
-	border-bottom: 1px solid black;
-	gap: 1rem;
-	padding-bottom: 0.25rem;
 
 	button {
 		padding: 0.25rem;
+		cursor: pointer;
+	}
+
+	> span:nth-child(2) {
+		text-align: end;
 	}
 }
 

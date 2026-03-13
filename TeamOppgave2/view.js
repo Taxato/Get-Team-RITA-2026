@@ -59,6 +59,11 @@ function showProductSearch() {
 }
 
 function showProductsList(productList) {
+	if (productList.length === 0)
+		return /* html */ `
+		<h4>Fant ingen varer som matchet søket</h4>
+	`;
+
 	let html = /* html */ `
 		<ul class="product-list">
 			<li class="product-item bold" >
@@ -76,8 +81,8 @@ function showProductsList(productList) {
 			<li class="product-item">
 				<div>
 					<span>${item.name}</span>
-					<span>${item.price}</span>
-					<input 
+					<span>${formatPrice(item.price)}</span>
+					<input
 						id="product-amount-${item.id}"
 						type="number" 
 						placeholder="Antall" />
