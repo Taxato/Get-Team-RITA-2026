@@ -51,7 +51,7 @@ function showProductSearch() {
 		<input 
 			id="product-search-input" 
 			class="search"
-			value="${model.searchTerm}" 
+			value="${model.inputs.searchTerm}" 
 			type="text" 
 			placeholder="Søk etter varer"
 			oninput="updateSearchTerm(this.value)" />

@@ -2,22 +2,10 @@ const model = {
 	app: document.getElementById("app"),
 
 	shoppingCart: [
-		{
-			id: 9,
-			quantity: 3,
-		},
-		{
-			id: 15,
-			quantity: 2,
-		},
-		{
-			id: 11,
-			quantity: 1,
-		},
-		{
-			id: 2,
-			quantity: 0.3,
-		},
+		{ id: 9, quantity: 3 },
+		{ id: 15, quantity: 2 },
+		{ id: 11, quantity: 1 },
+		{ id: 2, quantity: 0.3 },
 	],
 
 	availableGroceries: [
@@ -59,5 +47,7 @@ const model = {
 		{ id: 30, name: "Laksefilet (per kg)", price: 239.0 },
 	],
 
-	searchTerm: "",
+	inputs: {
+		searchTerm: "",
+	},
 };

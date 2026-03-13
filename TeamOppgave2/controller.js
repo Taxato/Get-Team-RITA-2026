@@ -1,6 +1,6 @@
 updateView();
 function updateView() {
-	const filteredGroceries = filterProductsFromSearch(model.searchTerm);
+	const filteredGroceries = filterProductsFromSearch(model.inputs.searchTerm);
 
 	const input = document.getElementById("product-search-input");
 	const cursor = input?.selectionStart;
@@ -43,7 +43,7 @@ function filterProductsFromSearch(searchTerm) {
 }
 
 function updateSearchTerm(newSearchTerm) {
-	model.searchTerm = newSearchTerm;
+	model.inputs.searchTerm = newSearchTerm;
 	updateView();
 }
 
